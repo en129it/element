@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>This page embeds an Angular element</h1>
+    <form id="rootForm" action="/create" method="GET">
+        <input type="text" name="firstName" placeholder="First name">
+        <input type="text" name="lastName" placeholder="Last name">
+        <input type="hidden" name="bicCode" value="Toto">
+        <input type="hidden" name="institutionName" value="Hello">
+        <app-institution id="element" form="rootForm"></app-institution>
+        <input type="submit" value="Submit">
+  </form>
+  <script src="./testelement.js"></script>
+  </body>
+</html>

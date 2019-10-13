@@ -1,0 +1,2 @@
+#!/bin/sh
+ng build testelement --prod --output-hashing=none && cat dist/testelement/runtime.js dist/testelement/polyfills.js dist/testelement/scripts.js dist/testelement/main.js > preview/testelement.js

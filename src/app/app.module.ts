@@ -1,18 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector, ComponentRef } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { createCustomElement, NgElementConstructor } from '@angular/elements';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { InstitutionComponent } from './institution/institution.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    InstitutionComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, ReactiveFormsModule, FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    InstitutionComponent
+  ],
+  providers: []
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+  }
+
+  ngDoBootstrap() {
+    const customClass: NgElementConstructor<InstitutionComponent> = createCustomElement(InstitutionComponent, {injector: this.injector});
+    const superConnectedCallback = customClass.prototype.connectedCallback;
+
+    customClass.prototype.connectedCallback = function() {
+      superConnectedCallback.apply(this);
+      const componentRef: ComponentRef<InstitutionComponent> = this.ngElementStrategy.componentRef;
+      const component = componentRef.instance;
+    };
+    window.customElements.define('app-institution', customClass);
+  }
+}
