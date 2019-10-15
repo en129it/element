@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 
 @Component({
   templateUrl: './institution.component.html',
-  styleUrls: ['./institution.component.sass']
+  styleUrls: ['./institution.component.scss']
 })
 export class InstitutionComponent implements OnInit, OnChanges {
 

@@ -23,6 +23,7 @@ export class AppModule {
 
   ngDoBootstrap() {
     const customClass: NgElementConstructor<InstitutionComponent> = createCustomElement(InstitutionComponent, {injector: this.injector});
+/*    
     const superConnectedCallback = customClass.prototype.connectedCallback;
 
     customClass.prototype.connectedCallback = function() {
@@ -30,6 +31,7 @@ export class AppModule {
       const componentRef: ComponentRef<InstitutionComponent> = this.ngElementStrategy.componentRef;
       const component = componentRef.instance;
     };
+*/    
     window.customElements.define('app-institution', customClass);
   }
 }
