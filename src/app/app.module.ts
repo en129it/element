@@ -4,13 +4,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { createCustomElement, NgElementConstructor } from '@angular/elements';
 
 import { InstitutionComponent } from './institution/institution.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     InstitutionComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, FormsModule
+    BrowserModule, MatButtonModule, ReactiveFormsModule, FormsModule, NoopAnimationsModule
   ],
   entryComponents: [
     InstitutionComponent

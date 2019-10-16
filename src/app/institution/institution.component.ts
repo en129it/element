@@ -1,10 +1,16 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, Inject } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Inject, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
 
+
+//encapsulation : ViewEncapsulation.Native then no need to import CSS in index.html
+//encapsulation : ViewEncapsulation.Emulated then need to import CSS in index.html
+
+
 @Component({
   templateUrl: './institution.component.html',
-  styleUrls: ['./institution.component.scss']
+  styleUrls: ['./institution.component.scss'],
+  encapsulation : ViewEncapsulation.Emulated
 })
 export class InstitutionComponent implements OnInit, OnChanges {
 
